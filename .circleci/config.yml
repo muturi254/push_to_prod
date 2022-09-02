@@ -28,7 +28,7 @@ jobs:
               list-exports --query "Exports[?Name==\`PipelineID\`].Value" \
               --no-paginate --output text > ~/textfile.txt
       - persist_to_workspace:
-          root: ~/
+          root: ./
           paths:
             - textfile.txt
 
@@ -52,7 +52,7 @@ jobs:
       - checkout
       - run: yum install -y tar gzip
       - attach_workspace:
-          at: ~/
+          at: ./
       - run:
           name: Destroy the previous S3 bucket and CloudFormation stack. 
           command: |
