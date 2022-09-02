@@ -26,7 +26,7 @@ jobs:
           command: |
             aws cloudformation \
               list-exports --query "Exports[?Name==\`PipelineID\`].Value" \
-              --no-paginate --output text > ~/textfile.txt
+              --no-paginate --output text > ./textfile.txt
       - persist_to_workspace:
           root: ./
           paths:
@@ -60,7 +60,7 @@ jobs:
             ls ~/
             echo "hello world \n"
             cat ~/textfile.txt
-            export OldBucketID=$(cat ~/textfile.txt)
+            export OldBucketID=$(cat ./textfile.txt)
             aws s3 rm "s3://${OldBucketID}" --recursive
   
 workflows:
