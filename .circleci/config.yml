@@ -34,7 +34,7 @@ jobs:
 
   promote_to_production:
     docker:
-      - image: amazon/aws-cliiii
+      - image: amazon/aws-cli
     steps:
       - checkout
       - run:
