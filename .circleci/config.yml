@@ -56,11 +56,8 @@ jobs:
       - run:
           name: Destroy the previous S3 bucket and CloudFormation stack. 
           command: |
-            cat ~/textfile.txt
-            ls ~/
-            echo "hello world \n"
-            cat ~/textfile.txt
             export OldBucketID=$(cat ./textfile.txt)
+            echo "s3://${OldBucketID}"
             aws s3 rm "s3://${OldBucketID}" --recursive
   
 workflows:
